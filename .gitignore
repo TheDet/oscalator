@@ -1,0 +1,5 @@
+#Netbeans specifics
+build/
+dist/
+target/
+lib_managed
