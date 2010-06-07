@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="sbtXml" default="help" basedir=".">
+<project name="oScalaTor" default="help" basedir=".">
 
   <description>Ant build file that forward all work to sbt</description>
 
   <macrodef name="sbt">
     <attribute name="actions"/>
     <sequential>
-      <exec executable="sbt">
+      <exec executable="C:/Programme/sbt/sbt.bat">
         <arg value="@{actions}"/>
       </exec>
     </sequential>
@@ -18,6 +18,10 @@
 
   <target name="compile">
     <sbt actions="compile"/>
+  </target>
+
+  <target name="compileContinuous">
+    <sbt actions="~compile"/>
   </target>
 
   <target name="test">

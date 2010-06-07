@@ -73,7 +73,7 @@ class ScalaWireSpec extends Spec with ShouldMatchers {
         wavelet.dataDocuments should equal ( List[Any](""))  // Shall later be correct List
     }
   }
-/*
+
   describe("UnwireBlip") {
      it("should instanciate a Blip object") {
        val json = """
@@ -109,7 +109,7 @@ class ScalaWireSpec extends Spec with ShouldMatchers {
         blip.lastModifiedTime should equal (1255934856708L)
         blip.version should equal (6L)
 
-        blip.contributors should equal ( List[String]("user@example.com"))  
+        blip.contributors should equal ( List[String]("user@example.com"))
         blip.childBlipIds should equal ( List[String]())
 
         blip.elements should equal (Map[String, Any]())  // what type is Any??
@@ -117,7 +117,7 @@ class ScalaWireSpec extends Spec with ShouldMatchers {
         blip.annotations should equal (List[Annotation]())
     }
   }
-*/
+
   describe("UnwireAnnotation") {
      it("should instanciate an Annotation object") {
        import de.detthedev.oscalator.wave.model.Range

@@ -9,7 +9,7 @@ import dispatch.json._
 import de.detthedev.oscalator.wave.model._
 
 // TODO:  Unwire objects should be classes, as they need the member variable m !! (or does implicit help??
-  // Then we would need companion objects to keep the apply method !! think about this resturct!!
+  // Then we would need companion objects to keep the apply method !! think about this restruct!!
 abstract class Unwire[T](x:JsValue) {
   var m:Map[JsString, JsValue] = adapt(x)
 
@@ -38,7 +38,7 @@ abstract class Unwire[T](x:JsValue) {
   def long(key:String):Long = number(key).toLong
   def date(key:String):java.util.Date = new java.util.Date(long(key))
 
-  def stringarray(kex:String) = array(key) map (x => x.asInstanceOf[JsString].self)
+  def stringarray(key:String) = array(key) map (x => x.asInstanceOf[JsString].self)
 }
 
 //case class Error(message:String)
@@ -94,7 +94,7 @@ class UnwireWavelet(x:JsObject) extends Unwire[Wavelet](x) {
        creationTime      = long  ("creationTime"),
        creator           = string("creator"),
        lastModifiedTime  = long  ("lastModifiedTime"),
-       participants      = stringarray ("participants"),  // TODO
+       participants      = stringarray ("participants"),  
        rootBlipId        = string("rootBlipId"),
        title             = string("title"),
        version           = long  ("version"),
@@ -133,6 +133,7 @@ object UnwireBlip extends UnwireObject[Blip]{
   override def unwire(v:JsObject) =  new UnwireBlip(v).unwire
 }
 class UnwireBlip(x:JsObject) extends Unwire[Blip](x) {
+   def annotations(key:String) = array(key) map (x => UnwireAnnotation(x) )
    def unwire = Blip(
        blipId = string("blipId"),
        waveId = string("waveId"),
@@ -140,8 +141,8 @@ class UnwireBlip(x:JsObject) extends Unwire[Blip](x) {
        creator = string("creator"),
        contributors = stringarray("contributors"),
        content = string("content"),
-       childBlipIds = long("childBlipIds"),
-       //JsString(elements) -> JsObject(Map()),  TODO !!
+       childBlipIds = stringarray("childBlipIds"),
+       //elements = JsObject(Map()),  TODO !!
        annotations = annotations("annotations"),
        lastModifiedTime = long("lastModifiedTime"),
        version = long("version")
