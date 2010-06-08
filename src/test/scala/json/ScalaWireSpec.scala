@@ -13,6 +13,7 @@ import org.scalatest.matchers._
 //import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import de.detthedev.oscalator.wave.wire._
+import de.detthedev.oscalator.wave.model._
 import dispatch.json._
 
 
@@ -114,13 +115,12 @@ class ScalaWireSpec extends Spec with ShouldMatchers {
 
         //blip.elements should equal (Map[String, Any]())  // what type is Any??
 
-        blip.annotations should equal (List[Annotation]())
+        blip.annotations should equal (List[Annotation](Annotation("conv/title", "", Range(0,1))))
     }
   }
 
   describe("UnwireAnnotation") {
      it("should instanciate an Annotation object") {
-       import de.detthedev.oscalator.wave.model.Range
        val json = """
        {
             "range": {
@@ -157,7 +157,6 @@ class ScalaWireSpec extends Spec with ShouldMatchers {
 
   describe("UnwireBundle") {
      it("should instanciate a Bundle object") {
-       import de.detthedev.oscalator.wave.model._
        val json = """
         {
           "events":[],
