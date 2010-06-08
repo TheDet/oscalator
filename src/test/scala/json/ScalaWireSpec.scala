@@ -5,18 +5,18 @@
 
 package oscalator.test.json
 
-import org.junit._
-import Assert._
+//import org.junit._
+//import Assert._
 
 import org.scalatest.Spec
 import org.scalatest.matchers._
-import org.junit.runner.RunWith
+//import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 import de.detthedev.oscalator.wave.wire._
 import dispatch.json._
 
 
-@RunWith(classOf[JUnitRunner])
+//@RunWith(classOf[JUnitRunner])
 class ScalaWireSpec extends Spec with ShouldMatchers {
   describe("UnwireEvent") {
      it("should instanciate an Event object") {
@@ -112,7 +112,7 @@ class ScalaWireSpec extends Spec with ShouldMatchers {
         blip.contributors should equal ( List[String]("user@example.com"))
         blip.childBlipIds should equal ( List[String]())
 
-        blip.elements should equal (Map[String, Any]())  // what type is Any??
+        //blip.elements should equal (Map[String, Any]())  // what type is Any??
 
         blip.annotations should equal (List[Annotation]())
     }
