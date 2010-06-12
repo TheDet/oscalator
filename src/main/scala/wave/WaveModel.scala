@@ -34,9 +34,32 @@ case class Annotation (
    name:String,
    value:String,
    range:Range
+)
+{
    // TODO: Google's Annotation contains a shift method, as
    // well as toString and some name (key) constants
-)
+     /**
+   * Shifts this annotation by {@code shiftAmount} if it is on a range that
+   * is after or covers the given position.
+   *
+   * @param position the anchor position.
+   * @param shiftAmount the amount to shift the annotation range.
+   */
+//  def shift(position:Int, shiftAmount:Int) {
+//    val start = range.start
+//    if (start >= position) {
+//      start += shiftAmount
+//    }
+//
+//    val end = range.end
+//    if (end >= position) {
+//      end += shiftAmount
+//    }
+//    range = Range(start, end)
+//  }
+}
+
+
 
 case class Range (
    start:Long,

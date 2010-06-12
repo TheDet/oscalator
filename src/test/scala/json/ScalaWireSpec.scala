@@ -11,7 +11,7 @@ package oscalator.test.json
 import org.scalatest.Spec
 import org.scalatest.matchers._
 //import org.junit.runner.RunWith
-import org.scalatest.junit.JUnitRunner
+//import org.scalatest.junit.JUnitRunner
 import de.detthedev.oscalator.wave.wire._
 import de.detthedev.oscalator.wave.model._
 import dispatch.json._
